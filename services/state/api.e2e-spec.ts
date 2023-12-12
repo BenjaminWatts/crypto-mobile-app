@@ -2,7 +2,7 @@ import React from "react";
 import "@testing-library/jest-dom";
 import {store} from '.'
 import { geckoApi } from "./api";
-import { CoinDetail, CoinListItem as CoinListItem, MarketChart } from "../../common/types";
+import { CoinDetail, CoinListItem as CoinListItem, CoinSearchResult, MarketChart } from "../../common/types";
 
 const coinId = 'bitcoin' // chemix
 const days = 1
@@ -46,6 +46,14 @@ const validateDetail = (coin: CoinDetail) => {
 
 }
 
+const validateSearchCoin = (coin: CoinSearchResult) => {
+    expect(typeof coin.id).toBe('string');
+    expect(typeof coin.name).toBe('string');
+    expect(typeof coin.api_symbol).toBe('string');
+    expect(typeof coin.thumb).toBe('string');
+    expect(typeof coin.large).toBe('string');
+}
+
 const validateMarketChart = (chart: MarketChart) => {
     expect(Array.isArray(chart.prices)).toBe(true);
     expect(Array.isArray(chart.market_caps)).toBe(true);
@@ -78,6 +86,16 @@ describe("geckoApi", () => {
             throw new Error('No data returned');
         }
         validateMarketChart(result.data);
+    })
+
+    test('search can fetch a list of coins', async() => {
+        const result = await store.dispatch(geckoApi.endpoints.search.initiate({query: 'bitcoin'}));
+        if(!result.data) {
+            throw new Error('No data returned');
+        }
+        for (const coin of result.data.coins) {
+            validateSearchCoin(coin);
+        }
     })
 
 });

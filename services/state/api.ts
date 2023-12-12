@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { CoinDetail, CoinListItem, MarketChart } from "../../common/types";
+import { CoinDetail, CoinListItem, CoinSearchResult, MarketChart } from "../../common/types";
 import { REHYDRATE } from "redux-persist";
 import { Action } from "@reduxjs/toolkit";
 import { RootState } from ".";
@@ -23,6 +23,14 @@ type MarketChartParams = {
   days: number;
 };
 type MarketChartResponse = MarketChart;
+
+type SearchParams = {
+  query: string;
+}
+
+type SearchResponse = {
+  coins: CoinSearchResult[]
+}
 
 function isHydrateAction(action: Action): action is Action<typeof REHYDRATE> & {
   key: string;
@@ -54,6 +62,9 @@ export const geckoApi = createApi({
       query: (options) =>
         `/coins/${options.coinId}/market_chart?vs_currency=usd&days=${options.days}`,
     }),
+    search: builder.query<SearchResponse, SearchParams>({
+      query: ({ query }) => `search?query=${query}`,
+    }),
   }),
   extractRehydrationInfo(action, { reducerPath }): any {
     if (isHydrateAction(action)) {
@@ -67,5 +78,5 @@ export const geckoApi = createApi({
   refetchOnReconnect: true,
 });
 
-export const { useGetCryptosQuery, useGetCryptoQuery, useMarketChartQuery } =
+export const { useGetCryptosQuery, useGetCryptoQuery, useMarketChartQuery, useSearchQuery } =
   geckoApi;
