@@ -53,3 +53,12 @@ export type MarketChart = {
   market_caps: Array<Array<number>>;
   total_volumes: Array<Array<number>>;
 }
+
+export type CoinSearchResult = {
+  id: string;
+  name: string;
+  api_symbol: string;
+  market_cap_rank: number;
+  thumb: string;
+  large: string;
+} 
