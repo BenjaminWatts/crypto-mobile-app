@@ -32,6 +32,8 @@ export const FavouriteCoin: React.FC<FavouriteCoinProps> = ({
   );
 };
 
+export const SearchedCoin = FavouriteCoin
+
 type LiveMarketCoinListProps = {
   name: string;
   image: string;

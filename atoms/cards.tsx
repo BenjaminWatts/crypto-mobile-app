@@ -77,3 +77,11 @@ export const DescriptionCard: React.FC<DescriptionCardProps> = ({
     </Card>
   );
 };
+
+export const NoResultsFound = () => {
+  return (
+    <Card>
+      <Card.Title>No results found</Card.Title>
+    </Card>
+  )
+}

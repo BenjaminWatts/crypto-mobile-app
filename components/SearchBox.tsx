@@ -1,6 +1,6 @@
 import React from "react";
-import { TextInput } from "react-native";
 import {log} from "../services/log";
+import { CoinSearch } from "../atoms/inputs";
 
 type SearchBoxProps = {
   onUpdated: (query: string) => void;
@@ -9,16 +9,13 @@ type SearchBoxProps = {
 export const SearchBox: React.FC<SearchBoxProps> = ({ onUpdated }) => {
   const [query, setQuery] = React.useState<string>("");
   return (
-    <TextInput
-      style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+    <CoinSearch
       value={query}
-      placeholder="Search"
       onChangeText={(newQuery) => {
         log.debug(`SearchBox updating query to: ${newQuery}`);
         setQuery(newQuery);
         onUpdated(newQuery);
       }}
-      
     />
-  );
+  )
 };
