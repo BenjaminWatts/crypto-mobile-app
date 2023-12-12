@@ -6,6 +6,7 @@ import { store } from "./services/state";
 import { Platform } from "react-native";
 import {persistStore} from 'redux-persist'
 import { PersistGate } from 'redux-persist/es/integration/react'
+import {ThemeProvider} from '@rneui/themed'
 
 const persistor = persistStore(store);
 
@@ -21,7 +22,9 @@ export const App = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <ExpoRoot context={ctx} />
+        <ThemeProvider>
+          <ExpoRoot context={ctx} />
+        </ThemeProvider>
       </PersistGate>
     </Provider>
   );

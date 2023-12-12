@@ -4,6 +4,7 @@ import { log } from "../log";
 export type Favourite = {
   id: string;
   name: string;
+  image_thumb: string;
 };
 
 type FavouritesState = {

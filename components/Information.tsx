@@ -27,7 +27,13 @@ export const Information: React.FC<InformationProps> = ({ coinId }) => {
   nav.setOptions({ title: data.name });
   return (
     <>
-      <ToggleFavourite favourite={{ id: data.id, name: data.name }} />
+      <ToggleFavourite
+        favourite={{
+          id: data.id,
+          name: data.name,
+          image_thumb: data.image.thumb,
+        }}
+      />
       {/* <CoinDetail data={data} /> */}
     </>
   );
