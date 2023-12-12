@@ -1,22 +1,23 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet } from 'react-native';
-
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
+import { StyleSheet, Text } from 'react-native';
 import { useGlobalSearchParams } from 'expo-router';
+import { Information } from '../../components/Information';
+import { ScrollView } from 'react-native-gesture-handler';
+import { MarketGraph } from '../../components/MarketChart';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator();
+
 
 export default function ModalScreen() {
   const {id} = useGlobalSearchParams()
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Coin {id}</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/modal.tsx" />
 
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
-      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
-    </View>
+  return (
+    <ScrollView>
+      <MarketGraph coinId={id as string} />
+      <Information coinId={id as string} />
+
+    </ScrollView>
   );
 }
 

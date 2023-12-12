@@ -44,6 +44,8 @@ export const geckoApi = createApi({
         `/coins/${options.coinId}/market_chart?vs_currency=usd&days=${options.days}`,
     }),
   }),
+  refetchOnFocus: true,
+  refetchOnReconnect: true,
 });
 
 export const {

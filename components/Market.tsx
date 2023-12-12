@@ -22,7 +22,7 @@ export const MarketList = () => {
     }
   );
   React.useEffect(() => {
-    if (error) {
+    if (error && !data) {
       ApiError(() => refetch());
     }
   }, [error]);
@@ -39,12 +39,7 @@ export const MarketList = () => {
           return (
             <View style={{ flex: 1, width: "100%", height: 50}}>
               <Link
-                href={{
-                  pathname: urls.coin,
-                  query: {
-                    id: item.id,
-                  },
-                }}
+                href={urls.coin(item.id)}
               >
                 <Text>{item.name}</Text>
               </Link>
