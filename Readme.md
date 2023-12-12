@@ -9,3 +9,10 @@ Expo-router handles navigation for the app. The screens outlined in the requirem
 2. Favourites `/favourites`
 3. Information `/coin/{id}`, where `id` is a coin id from the Coin-Gecko Api.
 
+
+## Testing
+
+Tests can either be run:
+
+1. `yarn test` - on a unit basis
+2. `yarn e2e` - on an end to end basis
