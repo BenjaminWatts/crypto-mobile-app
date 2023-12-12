@@ -4,14 +4,13 @@ import { ExpoRoot } from "expo-router";
 import { Provider } from "react-redux";
 import { store } from "./services/state";
 import { Platform } from "react-native";
-import {persistStore} from 'redux-persist'
-import { PersistGate } from 'redux-persist/es/integration/react'
-import {ThemeProvider} from '@rneui/themed'
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/es/integration/react";
+import { ThemeProvider } from "@rneui/themed";
 
 const persistor = persistStore(store);
 
 export const App = () => {
-
   const ctx = require.context("./app");
   React.useEffect(() => {
     if (__DEV__ && Platform.OS !== "web") {
@@ -20,14 +19,14 @@ export const App = () => {
     }
   });
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <ThemeProvider>
+    <ThemeProvider>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
           <ExpoRoot context={ctx} />
-        </ThemeProvider>
-      </PersistGate>
-    </Provider>
+        </PersistGate>
+      </Provider>
+    </ThemeProvider>
   );
-}
+};
 
 registerRootComponent(App);

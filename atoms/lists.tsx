@@ -2,6 +2,7 @@ import React from "react";
 import { ListItem } from "@rneui/themed";
 import { View } from "react-native";
 import { CoinIcon } from "./images";
+import formatters from "../services/formatters";
 
 type FavouriteCoinProps = {
   name: string;
@@ -38,24 +39,7 @@ type LiveMarketCoinListProps = {
   price_change_percentage_24h: number;
 };
 
-const formatters = {
-  priceUsd: (dollars: number) => {
-    if (dollars < 1) {
-      // return as cents
-      const cents = Math.round(dollars * 100);
-      return `${cents}¢`;
-    }
-    if (dollars < 100) {
-      const rounded = Math.round(dollars * 100) / 100;
-      return `$${rounded}`;
-    }
-    const rounded = Math.round(dollars);
-    return `$${rounded}`;
-  },
-  percentage: (percentage: number) => {
-    return `${Math.round(percentage * 100)}%`;
-  },
-};
+
 
 export const LiveMarketCoinList: React.FC<LiveMarketCoinListProps> = ({
   name,

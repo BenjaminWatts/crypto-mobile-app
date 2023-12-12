@@ -2,7 +2,7 @@ import React from "react";
 import { useGetCryptosQuery } from "../services/state/api";
 import { Pressable, Text, View } from "react-native";
 import { RefreshControl } from "react-native-gesture-handler";
-import { Link, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import { urls } from "../services/nav";
 import { ApiError } from "./ApiError";
 import { FlashList } from "@shopify/flash-list";

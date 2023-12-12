@@ -2,9 +2,9 @@ import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs, useRouter } from "expo-router";
 import { useColorScheme } from "react-native";
-
 import Colors from "../../constants/Colors";
 import { urls } from "../../services/nav";
+import { HeaderSearchIcon } from "../../atoms/buttons";
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -32,12 +32,7 @@ export default function TabLayout() {
           title: "Home",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
-            <FontAwesome.Button
-              name="search"
-              size={20}
-              // backgroundColor="transparent"
-              underlayColor="transparent"
-              activeOpacity={0.3}
+            <HeaderSearchIcon
               onPress={() => {
                 router.push(urls.search);
               }}

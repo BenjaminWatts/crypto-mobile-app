@@ -1,11 +1,9 @@
 import React from "react";
-import {
-  Text,
-  useWindowDimensions,
-} from "react-native";
+import { Text, useWindowDimensions } from "react-native";
 import { useMarketChartQuery } from "../services/state/api";
 import { Loading } from "../atoms/loading";
 import { LineChart } from "react-native-chart-kit";
+import { ChartCard } from "../atoms/cards";
 
 type MarketGraphProps = {
   coinId: string;
@@ -42,18 +40,17 @@ const CHART_DAY_OPTIONS = [
 export const MarketGraph: React.FC<MarketGraphProps> = ({ coinId }) => {
   const [chartIndex, setChartIndex] = React.useState(1);
   const dims = useWindowDimensions();
-  const height = dims.height / 2;
+  const height = dims.height / 3;
   const chartOptions = CHART_DAY_OPTIONS[chartIndex];
   return (
-    <>
-      {<Text>{chartOptions.title}</Text>}
+    <ChartCard title={chartOptions.title}>
       <ChartData
-        width={dims.width}
+        width={dims.width - 40}
         coinId={coinId}
         chartOptions={chartOptions}
         height={height}
       />
-    </>
+    </ChartCard>
   );
 };
 
@@ -108,7 +105,7 @@ export const ChartData: React.FC<{
             }}
             bezier
             style={{
-              margin: 8,
+              // margin: 8,
             }}
           />
         </>
