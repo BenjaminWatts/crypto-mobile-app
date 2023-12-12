@@ -1,16 +1,11 @@
 import React from "react";
 import {
-  Button,
-  Dimensions,
   Text,
-  View,
   useWindowDimensions,
 } from "react-native";
 import { useMarketChartQuery } from "../services/state/api";
 import { Loading } from "../atoms/loading";
-import { MarketChart } from "../common/types";
 import { LineChart } from "react-native-chart-kit";
-import Swiper from "react-native-swiper";
 
 type MarketGraphProps = {
   coinId: string;
@@ -97,8 +92,6 @@ export const ChartData: React.FC<{
             yAxisSuffix="k"
             yAxisInterval={1} // optional, defaults to 1
             chartConfig={{
-              title: chartOptions.title,
-              //   backgroundColor: "#e26a00",
               backgroundGradientFrom: "#fb8c00",
               backgroundGradientTo: "#ffa726",
               decimalPlaces: 0, // optional, defaults to 2dp

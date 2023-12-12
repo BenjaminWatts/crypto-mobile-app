@@ -1,6 +1,6 @@
 {
   "name": "edfcrypto",
-  "main": "index.js",
+  "main": "index.tsx",
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
+    "@react-native-async-storage/async-storage": "^1.21.0",
+    "@react-native-community/checkbox": "^0.5.16",
     "@react-navigation/native": "^6.0.2",
     "@reduxjs/toolkit": "^2.0.1",
     "@shopify/flash-list": "^1.6.3",
@@ -33,9 +35,9 @@
     "react-native-screens": "~3.22.0",
     "react-native-svg": "^14.1.0",
     "react-native-swiper": "^1.6.0",
-    "react-native-web": "~0.19.6",
     "react-redux": "^9.0.4",
-    "reactotron-react-native": "^5.0.4"
+    "reactotron-react-native": "^5.0.4",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

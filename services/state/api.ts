@@ -1,5 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { CoinDetail, CoinListItem, MarketChart } from "../../common/types";
+import { REHYDRATE } from "redux-persist";
+import { Action } from "@reduxjs/toolkit";
+import { RootState } from ".";
 
 const currency = "usd";
 const locale = "en";
@@ -20,6 +23,14 @@ type MarketChartParams = {
   days: number;
 };
 type MarketChartResponse = MarketChart;
+
+function isHydrateAction(action: Action): action is Action<typeof REHYDRATE> & {
+  key: string;
+  payload: RootState;
+  err: unknown;
+} {
+  return action.type === REHYDRATE;
+}
 
 export const geckoApi = createApi({
   reducerPath: "geckoApi",
@@ -44,12 +55,17 @@ export const geckoApi = createApi({
         `/coins/${options.coinId}/market_chart?vs_currency=usd&days=${options.days}`,
     }),
   }),
+  extractRehydrationInfo(action, { reducerPath }): any {
+    if (isHydrateAction(action)) {
+      if (action.key === "key used with redux-persist") {
+        return action.payload;
+      }
+      return (action as any).payload[geckoApi.reducerPath];
+    }
+  },
   refetchOnFocus: true,
   refetchOnReconnect: true,
 });
 
-export const {
-  useGetCryptosQuery,
-  useGetCryptoQuery,
-  useMarketChartQuery,
-} = geckoApi;
+export const { useGetCryptosQuery, useGetCryptoQuery, useMarketChartQuery } =
+  geckoApi;

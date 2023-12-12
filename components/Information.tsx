@@ -4,6 +4,7 @@ import { useGetCryptoQuery } from "../services/state/api";
 import { Loading } from "../atoms/loading";
 import { CoinDetail } from "../atoms/Coin";
 import { useNavigation } from "expo-router";
+import { ToggleFavourite } from "./ToggleFavourite";
 
 type InformationProps = {
   coinId: string;
@@ -11,15 +12,23 @@ type InformationProps = {
 export const Information: React.FC<InformationProps> = ({ coinId }) => {
   log.debug(`Information: ${coinId}`);
   const nav = useNavigation();
-  const { data, isLoading } = useGetCryptoQuery({ coinId }, {
-    pollingInterval: 30000,
-  });
+  const { data, isLoading } = useGetCryptoQuery(
+    { coinId },
+    {
+      pollingInterval: 30000,
+    }
+  );
   if (isLoading || !data) {
-    nav.setOptions({ title: 'Coin Loading ...' });
+    nav.setOptions({ title: "Coin Loading ..." });
     log.debug(`Information: ${coinId} loading`);
     return <Loading />;
   }
-  log.debug(`Information: ${coinId} loaded`)
+  log.debug(`Information: ${coinId} loaded`);
   nav.setOptions({ title: data.name });
-  return <CoinDetail data={data} />;
+  return (
+    <>
+      <ToggleFavourite favourite={{ id: data.id, name: data.name }} />
+      {/* <CoinDetail data={data} /> */}
+    </>
+  );
 };
