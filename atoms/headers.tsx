@@ -19,23 +19,20 @@ const textStyles = {
   fontSize: 20,
 };
 
-export const HomeHeader = () => {
-  const router = useRouter();
+type HomeHeaderProps = {
+  toSearch: () => void;
+};
+export const HomeHeader: React.FC<HomeHeaderProps> = ({ toSearch }) => {
   return (
     <Header
       centerComponent={{ text: "Latest Prices", style: textStyles }}
-      rightComponent={
-        <HeaderSearchIcon
-          onPress={() => {
-            router.push(urls.search);
-          }}
-        />
-      }
+      rightComponent={<HeaderSearchIcon onPress={toSearch} />}
     />
   );
 };
 
-export const FavouritesHeader = () => {
+type FavouritesHeaderProps = {};
+export const FavouritesHeader: React.FC<FavouritesHeaderProps> = () => {
   const dispatch = useAppDispatch();
   return (
     <Header

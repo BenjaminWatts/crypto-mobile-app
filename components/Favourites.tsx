@@ -21,7 +21,6 @@ export const Favourites: React.FC = () => {
         return (
           <Pressable 
             testID={`favourite-result-${index}`}
-          
             onPress={() => router.push(urls.coin(item.id))}>
             <FavouriteCoin
               name={item.name}
