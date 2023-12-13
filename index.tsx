@@ -7,10 +7,14 @@ import { Platform } from "react-native";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/es/integration/react";
 import { ThemeProvider } from "@rneui/themed";
+import * as SplashScreen from 'expo-splash-screen';
 
 const persistor = persistStore(store);
 
 export const App = () => {
+  SplashScreen.preventAutoHideAsync();
+  setTimeout(SplashScreen.hideAsync, 2000)
+  
   const ctx = require.context("./app");
   React.useEffect(() => {
     if (__DEV__ && Platform.OS !== "web") {

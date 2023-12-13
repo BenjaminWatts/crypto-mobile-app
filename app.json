@@ -16,7 +16,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "com.benjaminwatts.edfcrypto"
     },
     "android": {
@@ -32,6 +32,17 @@
     "experiments": {
       "typedRoutes": true
     },
-    "platforms": ["ios", "android"]
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "69e3ff3a-ed51-46ae-a5bd-82381bdd33a8"
+      }
+    }
   }
 }
