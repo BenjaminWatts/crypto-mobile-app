@@ -1,14 +1,33 @@
 # Coin App
+
 This app was created using the Tabs starter from Expo-router (`npx create-expo-app@latest --template tabs@49`).
 
-## Navigation
+## Navigation and Screens
 
-Expo-router handles navigation for the app. The screens outlined in the requirements have the following routes:
+Expo-router handles navigation for the app. The screens outlined in the requirements have the following routes.
 
-1. Home: `/`
-2. Favourites `/favourites`
-3. Information `/coin/{id}`, where `id` is a coin id from the Coin-Gecko Api.
+### Home:
 
+Path: `/`
+![iOS Home Screen](./outputs/ios_screenshots/home.png)
+![Android Home Screen](./outputs/android_screenshots/home.png)
+
+### Favourites
+
+Path: `/favourites`
+![iOS Favourites Screen](./outputs/ios_screenshots/favourites.png)
+![Android Favourites Screen](./outputs/android_screenshots/favourites.png)
+
+### Information
+Path: `/coin/{id}`, where `id` is a coin id from the Coin-Gecko Api.
+![iOS Information Screen](./outputs/ios_screenshots/information.png)
+![Android Favourites Screen](./outputs/android_screenshots/information.png)
+
+### Search
+
+Path: `/search`
+![iOS Search Screen](./outputs/ios_screenshots/search.png)
+![Android Favourites Screen](./outputs/android_screenshots/search.png)
 
 ## Testing
 
@@ -18,18 +37,38 @@ Tests can either be run:
 2. `yarn e2e` - on an end to end basis
 3. `yarn maestro` - TBC
 
+## Development
+
+The app can be run on simulator or a connected device using:
+
+1. `yarn ios`
+2. `yarn android`
+
+It isn't recommended to use Expo Go.
+
+## Building for Devices
+
+The app is built locally using Expo (this could be moved to expo CI/CD). Build will not work without access to a working Expo account and/or signing credentials, you can set these up following the docs here `https://docs.expo.dev/build/introduction/.` 
+
+Note that if using a different Expo account, the configuration in `app.json` will need updating.
+
+On iOS, the build targets `internal` distribution, so devices must be enrolled to the account using `eas device:create` or manually using UDID.
+
+A production release without developer tools is built.
+
+1. `yarn build:android`. This outputs to `outputs/prod.apk`. You can run this on a connected usb device using `yarn android:device`
+2. `yarn build:ios`. This outputs to `outputs/prod.ipa`.
+3. `yarn build:cloud`. This builds in the cloud using eas instead.
+
+## App Icon and Splash screen
+
+App icons and spash screen were generated using a Bitcoin icon sourced online and the Expo tutorial here `https://docs.expo.dev/develop/user-interface/app-icons/`.
+A local copy of the figma template file is saved in `figma-app-icon.fig`. The exported assets are here `/Users/ben/edfcrypto/outputs/figma-app-icons`, and have also been copied to the `assets/images` directory to replace the template starters.
 
 ## Todo
-
-1. Improve error handling esp on Information screen.  Ensure loading occurs within cards.
-2. Build for appstore connect and apk
+1. Improve error handling esp on Information screen. Ensure loading occurs within cards.
 3. Add Infinite scroll to market list
-4. Add how to run the app to readme
 5. Make tab bar RNEU
 6. Add Maestro tests
 7. Add i18n?
-8. Create screenshots/videos and add to github repo
-9. Test on android
 10. Review Rehydration of api data.
-
-
