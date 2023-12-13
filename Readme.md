@@ -8,6 +8,9 @@ This app was created using the Tabs starter from Expo-router (`npx create-expo-a
 ![iOS Home Screen](./outputs/maestro_recordings/android.mp4)
 ![iOS Home Screen](./outputs/maestro_recordings/ios.mp4)
 
+<video src='./outputs/maestro_recordings/ios.mp4' controls="controls" style="max-width: 730px;">
+</video>
+
 ## Navigation and Screens
 
 Expo-router handles navigation for the app. The screens outlined in the requirements have the following routes.
