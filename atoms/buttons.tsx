@@ -15,6 +15,7 @@ const iconColor = "#fff";
 export const HeaderSearchIcon: React.FC<ButtonProps> = ({ onPress }) => {
   return (
     <Button
+      testID='search-icon'
       type="clear"
       icon={<FontAwesome name="search" size={headerIconSize}  color={iconColor}/>}
       onPress={onPress}
@@ -29,6 +30,7 @@ export const HeaderFavouriteSelectable: React.FC<
 > = ({ onPress, selected }) => {
   return (
     <Button
+      testID='favourite-icon'
       type='clear'
       icon={
         <FontAwesome
@@ -48,7 +50,20 @@ export const BackIcon: React.FC = () => {
   return (
     <Button
       type="clear"
+      testID='back-icon'
       icon={<FontAwesome name="arrow-left" size={headerIconSize} color={iconColor} />}
+      onPress={onPress}
+    />
+  );
+}
+
+
+export const ClearFavouritesRubbishIcon: React.FC<ButtonProps> = ({onPress}) => {
+  return (
+    <Button
+      type="clear"
+      testID='clear-favourites-icon'
+      icon={<FontAwesome name="trash" size={headerIconSize} color={iconColor} />}
       onPress={onPress}
     />
   );

@@ -1,0 +1,29 @@
+appId: com.benjaminwatts.edfcrypto
+---
+- launchApp:
+    stopApp: true
+- tapOn: "Favourites, tab, 2 of 2"
+- tapOn:
+    id: "clear-favourites-icon"
+- tapOn: "Home, tab, 1 of 2"
+- tapOn:
+    id: "search-icon"
+- tapOn: "Enter coin name"
+- inputText: "bitcoin"
+- hideKeyboard
+- tapOn:
+    id: "search-result-0"
+- tapOn: #  # favourite it
+    id: "favourite-icon"
+- tapOn: # back to search
+    id: 'back-icon'
+- tapOn: # back to main screen
+    id: 'back-icon'
+- tapOn: "Favourites, tab, 2 of 2"
+- tapOn:
+    id: "favourite-result-0"
+- tapOn: # unfavourite it
+    id: "favourite-icon"
+- tapOn:
+    id: 'back-icon'
+- tapOn: "Home, tab, 1 of 2"

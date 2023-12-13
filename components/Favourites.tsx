@@ -17,12 +17,14 @@ export const Favourites: React.FC = () => {
       data={favourites}
       ListEmptyComponent={<Text>No existing favourites</Text>}
       estimatedItemSize={250}
-      renderItem={(item) => {
+      renderItem={({item, index}) => {
         return (
-          <Pressable onPress={() => router.push(urls.coin(item.item.id))}>
+          <Pressable 
+            testID={`favourite-result-${index}`}
+            onPress={() => router.push(urls.coin(item.id))}>
             <FavouriteCoin
-              name={item.item.name}
-              iconUrl={item.item.image_thumb}
+              name={item.name}
+              iconUrl={item.image_thumb}
             />
           </Pressable>
         );

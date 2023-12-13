@@ -1,38 +1,47 @@
 import React from "react";
-import {  useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import { urls } from "../services/nav";
-import { BackIcon, HeaderSearchIcon } from "./buttons";
+import {
+  BackIcon,
+  ClearFavouritesRubbishIcon,
+  HeaderSearchIcon,
+} from "./buttons";
 import { Header } from "@rneui/themed";
 import { CoinDetail } from "../common/types";
 import { ToggleFavourite } from "../components/ToggleFavourite";
+import { useAppDispatch } from "../services/state";
+import { clearFavourites } from "../services/state/favourites";
 
 const textColor = "#fff";
 
 const textStyles = {
   color: textColor,
   fontSize: 20,
-}
+};
 
-export const HomeHeader = () => {
-  const router = useRouter();
+type HomeHeaderProps = {
+  toSearch: () => void;
+};
+export const HomeHeader: React.FC<HomeHeaderProps> = ({ toSearch }) => {
   return (
     <Header
       centerComponent={{ text: "Latest Prices", style: textStyles }}
-      rightComponent={
-        <HeaderSearchIcon
-          onPress={() => {
-            router.push(urls.search);
-          }}
-        />
-      }
+      rightComponent={<HeaderSearchIcon onPress={toSearch} />}
     />
   );
 };
 
-export const FavouritesHeader = () => {
+type FavouritesHeaderProps = {};
+export const FavouritesHeader: React.FC<FavouritesHeaderProps> = () => {
+  const dispatch = useAppDispatch();
   return (
     <Header
       centerComponent={{ text: "Favourites", style: textStyles }}
+      rightComponent={
+        <ClearFavouritesRubbishIcon
+          onPress={() => dispatch(clearFavourites())}
+        />
+      }
     />
   );
 };
@@ -41,7 +50,7 @@ export const SearchHeader = () => {
   return (
     <Header
       leftComponent={<BackIcon />}
-      centerComponent={{ text: "Search", style: textStyles}}
+      centerComponent={{ text: "Search", style: textStyles }}
     />
   );
 };

@@ -37,9 +37,10 @@ export const MarketList = () => {
       ListEmptyComponent={() => <Text>No data</Text>}
       keyExtractor={(item) => item.id}
       estimatedItemSize={200}
-      renderItem={({ item }) => {
+      renderItem={({ item, index }) => {
         return (
           <Pressable
+            testID={`market-list-${index}`}
             onPress={() => {
               router.push(urls.coin(item.id));
             }}
