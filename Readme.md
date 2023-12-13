@@ -40,10 +40,14 @@ Tests can either be run:
 
 ## Maestro Integration Tests
 
-Ios:
+### Android
 
-1. Build a simulator build: `cd ios && fastlane maestro`
+1. Build an android apk (see below) and install to device 
+2. Run using `yarn maestro`
 
+### Ios
+
+TBC
 
 ## Development
 
