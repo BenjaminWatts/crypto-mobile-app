@@ -3,8 +3,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs, useRouter } from "expo-router";
 import { useColorScheme } from "react-native";
 import Colors from "../../constants/Colors";
-import { urls } from "../../services/nav";
-import { HeaderSearchIcon } from "../../atoms/buttons";
+import { FavouritesHeader, HomeHeader } from "../../atoms/headers";
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -18,8 +17,6 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  const router = useRouter();
-
   return (
     <Tabs
       screenOptions={{
@@ -30,20 +27,15 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "Home",
+          header: HomeHeader,
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
-          headerRight: () => (
-            <HeaderSearchIcon
-              onPress={() => {
-                router.push(urls.search);
-              }}
-            />
-          )
         }}
       />
       <Tabs.Screen
         name="favourites"
         options={{
           title: "Favourites",
+          header: FavouritesHeader,
           tabBarIcon: ({ color }) => <TabBarIcon name="star" color={color} />,
         }}
       />
