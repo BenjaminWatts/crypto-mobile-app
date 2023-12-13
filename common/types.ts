@@ -19,7 +19,7 @@ export type CoinDetail = {
   id: string;
   name: string;
   description: {
-    en: string; // html
+    en?: string; // html
   };
   image: {
     // urls

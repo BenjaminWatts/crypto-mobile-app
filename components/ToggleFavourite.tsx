@@ -4,11 +4,10 @@ import {
   removeFavourite,
   addFavourite,
   Favourite,
-
 } from "../services/state/favourites";
 import { useAppDispatch, useAppSelector } from "../services/state";
-import CheckBox from "@react-native-community/checkbox";
 import { log } from "../services/log";
+import { HeaderFavouriteSelectable } from "../atoms/buttons";
 
 type ToggleFavouriteProps = {
   favourite: Favourite;
@@ -24,15 +23,16 @@ export const ToggleFavourite: React.FC<ToggleFavouriteProps> = ({
   const dispatch = useAppDispatch();
 
   return (
-    <CheckBox
-      value={selected}
-      onValueChange={(isFav) => {
-        if (!isFav) {
-          dispatch(removeFavourite(favourite.id));
-        } else {
+    <HeaderFavouriteSelectable
+      selected={selected}
+      onPress={() => {
+        if (!selected) {
           dispatch(addFavourite(favourite));
+        } else {
+          dispatch(removeFavourite(favourite.id));
         }
       }}
     />
-  );
+  )
+
 };

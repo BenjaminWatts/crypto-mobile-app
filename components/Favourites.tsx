@@ -1,15 +1,16 @@
 import React from "react";
 import { getFavourites } from "../services/state/favourites";
 import { FlashList } from "@shopify/flash-list";
-import { Text } from "react-native";
-import { Link } from "expo-router";
+import { Pressable, Text } from "react-native";
+import { useRouter } from "expo-router";
 import { urls } from "../services/nav";
 import { log } from "../services/log";
 import { useAppSelector } from "../services/state";
-import {View} from 'react-native'
+import { FavouriteCoin } from "../atoms/lists";
 
 export const Favourites: React.FC = () => {
   log.debug(`Favourites`);
+  const router = useRouter();
   const favourites = useAppSelector((state) => getFavourites(state));
   return (
     <FlashList
@@ -18,11 +19,12 @@ export const Favourites: React.FC = () => {
       estimatedItemSize={250}
       renderItem={(item) => {
         return (
-          <Link href={urls.coin(item.item.id)}>
-            <View style={{height: 50}}>
-              <Text>{item.item.name}</Text>
-            </View>
-          </Link>
+          <Pressable onPress={() => router.push(urls.coin(item.item.id))}>
+            <FavouriteCoin
+              name={item.item.name}
+              iconUrl={item.item.image_thumb}
+            />
+          </Pressable>
         );
       }}
     />
