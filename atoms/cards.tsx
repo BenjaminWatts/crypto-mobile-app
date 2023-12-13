@@ -7,15 +7,19 @@ import { useWindowDimensions } from "react-native";
 type ChartCardProps = {
   title: string;
   children: React.ReactNode;
+  containerHeight: number;
 };
 
 const containerStyle = {
   margin: 5,
 }
 
-export const ChartCard: React.FC<ChartCardProps> = ({ title, children }) => (
+export const ChartCard: React.FC<ChartCardProps> = ({ title, children, containerHeight }) => (
   <Card
-    containerStyle={containerStyle}
+    containerStyle={{
+      ...containerStyle,
+      height: containerHeight
+    }}
   >
     <Card.Title>{title}</Card.Title>
     {children}

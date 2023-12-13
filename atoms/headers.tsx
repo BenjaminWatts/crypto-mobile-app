@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, useRouter } from "expo-router";
+import {  useRouter } from "expo-router";
 import { urls } from "../services/nav";
 import { BackIcon, HeaderSearchIcon } from "./buttons";
 import { Header } from "@rneui/themed";

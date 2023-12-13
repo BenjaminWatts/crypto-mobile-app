@@ -43,7 +43,9 @@ export const MarketGraph: React.FC<MarketGraphProps> = ({ coinId }) => {
   const height = dims.height / 3;
   const chartOptions = CHART_DAY_OPTIONS[chartIndex];
   return (
-    <ChartCard title={chartOptions.title}>
+    <ChartCard title={chartOptions.title}
+      containerHeight={height + 60}
+    >
       <ChartData
         width={dims.width - 40}
         coinId={coinId}
@@ -69,8 +71,8 @@ export const ChartData: React.FC<{
 
   return (
     <>
-      {isLoading && !data && <Loading />}
-      {data && (
+      {(isLoading && !data) && <Loading />}
+      {(data && !isLoading) && (
         <>
           <LineChart
             data={{
