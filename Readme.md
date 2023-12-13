@@ -26,6 +26,7 @@ Tests can either be run:
 4. Add how to run the app to readme
 5. Make tab bar RNEU
 6. Add Maestro tests
+7. Add i18n?
 
 
 
