@@ -16,17 +16,20 @@ Tests can either be run:
 
 1. `yarn test` - on a unit basis
 2. `yarn e2e` - on an end to end basis
+3. `yarn maestro` - TBC
 
 
 ## Todo
 
-1. Improve error handling esp on Information screen
+1. Improve error handling esp on Information screen.  Ensure loading occurs within cards.
 2. Build for appstore connect and apk
 3. Add Infinite scroll to market list
 4. Add how to run the app to readme
 5. Make tab bar RNEU
 6. Add Maestro tests
 7. Add i18n?
-
+8. Create screenshots/videos and add to github repo
+9. Test on android
+10. Review Rehydration of api data.
 
 
