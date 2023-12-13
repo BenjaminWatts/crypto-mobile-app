@@ -5,7 +5,7 @@ WARNING: It is very easy to rate limit yourself for the CoinGecko API. It's reco
 
 This app was created using the Tabs starter from Expo-router (`npx create-expo-app@latest --template tabs@49`).
 
-<a href="./outputs/maestro_recordings/android.mp4" download>Download Android Video</a>
+<a href="./outputs/maestro_recordings/android.mp4" target="_blank" download="">Download Android Video</a>
 ![iOS Home Screen](./outputs/maestro_recordings/android.png)
 
 ## Navigation and Screens
