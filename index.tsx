@@ -17,7 +17,7 @@ export const App = () => {
       const rt = require("./services/reactotron").initReactotron;
       rt();
     }
-  });
+  }, []);
   return (
     <ThemeProvider>
       <Provider store={store}>

@@ -66,14 +66,14 @@ export const geckoApi = createApi({
       query: ({ query }) => `search?query=${query}`,
     }),
   }),
-  extractRehydrationInfo(action, { reducerPath }): any {
-    if (isHydrateAction(action)) {
-      if (action.key === "key used with redux-persist") {
-        return action.payload;
-      }
-      return (action as any).payload[geckoApi.reducerPath];
-    }
-  },
+  // extractRehydrationInfo(action, { reducerPath }): any {
+  //   if (isHydrateAction(action)) {
+  //     if (action.key === "key used with redux-persist") {
+  //       return action.payload;
+  //     }
+  //     return (action as any).payload[geckoApi.reducerPath];
+  //   }
+  // },
   refetchOnFocus: true,
   refetchOnReconnect: true,
 });
