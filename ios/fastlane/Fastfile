@@ -1,0 +1,15 @@
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Build the app for on simulator testing with maestro"
+  lane :maestro do
+    xcodebuild(
+      configuration: 'Release',
+      scheme: 'edfcrypto',
+      workspace: 'edfcrypto.xcworkspace',
+      xcargs: "-quiet -sdk 'iphonesimulator' -destination 'generic/platform=iOS Simulator'",
+      derivedDataPath: './maestro_builds'
+)
+  end
+end

@@ -11,8 +11,9 @@ import { FavouritesHeader, HomeHeader } from "../../atoms/headers";
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
   color: string;
+  testID?: string;
 }) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+  return <FontAwesome testID={props.testID} size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
 export default function TabLayout() {
@@ -28,7 +29,7 @@ export default function TabLayout() {
         options={{
           title: "Home",
           header: HomeHeader,
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon testID='home-tab-icon' name="home" color={color} />,
         }}
       />
       <Tabs.Screen
@@ -36,7 +37,7 @@ export default function TabLayout() {
         options={{
           title: "Favourites",
           header: FavouritesHeader,
-          tabBarIcon: ({ color }) => <TabBarIcon name="star" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon testID='favourites-tab-icon' name="star" color={color} />,
         }}
       />
     </Tabs>

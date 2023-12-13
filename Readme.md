@@ -2,6 +2,8 @@
 
 This app was created using the Tabs starter from Expo-router (`npx create-expo-app@latest --template tabs@49`).
 
+WARNING: It is very easy to rate limit yourself for the CoinGecko API. It's recommended hopping around with a VPN connection.
+
 ## Navigation and Screens
 
 Expo-router handles navigation for the app. The screens outlined in the requirements have the following routes.
@@ -29,13 +31,19 @@ Path: `/search`
 ![iOS Search Screen](./outputs/ios_screenshots/search.png)
 ![Android Favourites Screen](./outputs/android_screenshots/search.png)
 
-## Testing
+## Unit/E2E Javascript Testing
 
 Tests can either be run:
 
-1. `yarn test` - on a unit basis
-2. `yarn e2e` - on an end to end basis
-3. `yarn maestro` - TBC
+1. `yarn test` - on a unit basis -- TBC
+2. `yarn e2e` - on an end to end basis (basic tests for the CoinGecko API)
+
+## Maestro Integration Tests
+
+Ios:
+
+1. Build a simulator build: `cd ios && fastlane maestro`
+
 
 ## Development
 

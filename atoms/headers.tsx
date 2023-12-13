@@ -1,17 +1,23 @@
 import React from "react";
-import {  useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import { urls } from "../services/nav";
-import { BackIcon, HeaderSearchIcon } from "./buttons";
+import {
+  BackIcon,
+  ClearFavouritesRubbishIcon,
+  HeaderSearchIcon,
+} from "./buttons";
 import { Header } from "@rneui/themed";
 import { CoinDetail } from "../common/types";
 import { ToggleFavourite } from "../components/ToggleFavourite";
+import { useAppDispatch } from "../services/state";
+import { clearFavourites } from "../services/state/favourites";
 
 const textColor = "#fff";
 
 const textStyles = {
   color: textColor,
   fontSize: 20,
-}
+};
 
 export const HomeHeader = () => {
   const router = useRouter();
@@ -30,9 +36,15 @@ export const HomeHeader = () => {
 };
 
 export const FavouritesHeader = () => {
+  const dispatch = useAppDispatch();
   return (
     <Header
       centerComponent={{ text: "Favourites", style: textStyles }}
+      rightComponent={
+        <ClearFavouritesRubbishIcon
+          onPress={() => dispatch(clearFavourites())}
+        />
+      }
     />
   );
 };
@@ -41,7 +53,7 @@ export const SearchHeader = () => {
   return (
     <Header
       leftComponent={<BackIcon />}
-      centerComponent={{ text: "Search", style: textStyles}}
+      centerComponent={{ text: "Search", style: textStyles }}
     />
   );
 };

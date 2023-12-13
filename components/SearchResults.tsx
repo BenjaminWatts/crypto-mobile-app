@@ -28,9 +28,10 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
       }
       ListEmptyComponent={<NoResultsFound/>}
       data={data}
-      renderItem={({ item }) => {
+      renderItem={({ item, index }) => {
         return (
           <Pressable
+            testID={`search-result-${index}`}
             onPress={() => {
               router.push(urls.coin(item.id))
             }}

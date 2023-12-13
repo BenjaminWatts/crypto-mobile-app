@@ -30,6 +30,10 @@ export const favouritesSlice = createSlice({
       log.debug("removeFavourite", action.payload);
       state.favourites = state.favourites.filter((f) => f.id !== action.payload);
     },
+    clearFavourites: (state) => {
+      log.debug("clearFavourites");
+      state.favourites = [];
+    }
   },
   selectors: {
     getFavourites: (state) => {
@@ -48,5 +52,5 @@ export const favouritesSlice = createSlice({
   },
 });
 
-export const { addFavourite, removeFavourite } = favouritesSlice.actions;
+export const { addFavourite, removeFavourite, clearFavourites } = favouritesSlice.actions;
 export const { getFavourites, isFavourite } = favouritesSlice.selectors;

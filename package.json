@@ -12,7 +12,8 @@
     "build:cloud": "eas build --platform all",
     "build:android": "eas build --platform android --local --output outputs/prod.apk --clear-cache",
     "build:ios": "eas build --platform ios --local --output outputs/prod.ipa",
-    "android:device": "adb install outputs/prod.apk && adb shell am start -n com.edfcrypto/com.benjaminwatts.edfcrypto"
+    "android:device": "adb install outputs/prod.apk && adb shell am start -n com.edfcrypto/com.benjaminwatts.edfcrypto",
+    "maestro:ios": "maestro test maestro/flow.yaml"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
