@@ -1,8 +1,12 @@
 # Coin App
 
+WARNING: It is very easy to rate limit yourself for the CoinGecko API. It's recommended hopping around with a VPN connection.
+
+
 This app was created using the Tabs starter from Expo-router (`npx create-expo-app@latest --template tabs@49`).
 
-WARNING: It is very easy to rate limit yourself for the CoinGecko API. It's recommended hopping around with a VPN connection.
+![iOS Home Screen](./outputs/maestro_recordings/android.png)(./outputs/maestro_recordings/android.mp4)
+![iOS Home Screen](./outputs/maestro_recordings/ios.png)(./outputs/maestro_recordings/ios.mp4)
 
 ## Navigation and Screens
 
@@ -40,14 +44,18 @@ Tests can either be run:
 
 ## Maestro Integration Tests
 
-### Android
+First start a (reccomended) release variant/configuration build on android/ios
 
-1. Build an android apk (see below) and install to device 
-2. Run using `yarn maestro`
+For android, `yarn android --variant Release`
+For ios, `yarn ios --configuration Release`
 
-### Ios
+Next, to run Maestro:
 
-TBC
+2. Test using `yarn maestro:{PLATFORM}`
+3. Record using `yarn maestro:record:${PLATFORM}`
+
+Note that the flow files are different on each platform owing to unusual behaviour of tabs in ios. Tip, use `maestro studio` to inspect when writing tests.
+
 
 ## Development
 
@@ -57,6 +65,8 @@ The app can be run on simulator or a connected device using:
 2. `yarn android`
 
 It isn't recommended to use Expo Go.
+
+Reactotron is enabled in DEV only.
 
 ## Building for Devices
 
@@ -72,6 +82,8 @@ A production release without developer tools is built.
 2. `yarn build:ios`. This outputs to `outputs/prod.ipa`.
 3. `yarn build:cloud`. This builds in the cloud using eas instead.
 
+Sentry is enabled in dev only
+
 ## App Icon and Splash screen
 
 App icons and spash screen were generated using a Bitcoin icon sourced online and the Expo tutorial here `https://docs.expo.dev/develop/user-interface/app-icons/`.
@@ -84,3 +96,4 @@ A local copy of the figma template file is saved in `figma-app-icon.fig`. The ex
 6. Add Maestro tests
 7. Add i18n?
 10. Review Rehydration of api data.
+11. Add screenshot taking on Maestro

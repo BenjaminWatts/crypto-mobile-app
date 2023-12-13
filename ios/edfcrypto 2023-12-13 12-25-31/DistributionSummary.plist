@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>edfcrypto.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>buildNumber</key>
+			<string>1</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>8867078A011276E068D80DFBB19099F72F4629AC</string>
+				<key>dateExpires</key>
+				<string>09/11/2024</string>
+				<key>type</key>
+				<string>Apple Development</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>V2KVDPDMA9.com.benjaminwatts.edfcrypto</string>
+				<key>aps-environment</key>
+				<string>development</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>V2KVDPDMA9</string>
+				<key>get-task-allow</key>
+				<true/>
+			</dict>
+			<key>name</key>
+			<string>edfcrypto.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>10baace3-4e37-4387-b19f-e155b53109df</string>
+				<key>dateExpires</key>
+				<string>11/12/2024</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: com.benjaminwatts.edfcrypto</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>V2KVDPDMA9</string>
+				<key>name</key>
+				<string>Kilowatts.io Limited</string>
+			</dict>
+			<key>versionNumber</key>
+			<string>1.0.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>
